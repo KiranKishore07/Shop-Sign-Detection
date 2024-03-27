@@ -1,0 +1,7 @@
+cv2
+datetime
+paddleocr
+pafy
+pandas
+pytz
+ultralytics
