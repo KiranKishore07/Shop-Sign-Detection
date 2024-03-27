@@ -62,7 +62,8 @@ def process_video():
         ret, frame = cap.read()
         if not ret:
             break
-        detected_items = model_prediction(frame)
+        image = cv2.resize(frame, (416, 416), interpolation=cv2.INTER_CUBIC if min(frame.shape[:2]) < 416 else cv2.INTER_LINEAR)
+        detected_items = model_prediction(image)
         if detected_items:
             update_shop_entries(detected_items, shop_entries)
 
